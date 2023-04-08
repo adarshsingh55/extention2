@@ -1,0 +1,14 @@
+{
+  "name": "My Extension",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Description of my extension",
+  "permissions": ["tabs"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
