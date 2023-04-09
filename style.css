@@ -31,7 +31,7 @@ max-height: 85vh;
 }
 
 .iocon_container{
-    width: 40px;
+    width: 60px;
     /* background-color: red; */
     display: flex;
     flex-direction: column;
@@ -52,12 +52,12 @@ max-height: 85vh;
     margin-left: 10px;
 }
 .btn img{
-    margin-top: 10px;
+    margin-top: 15px;
     width: 40px;
     display: block;
     color: aqua;
     cursor: pointer;
-    margin-left: 15px;
+    margin-left: 9px;
 }
 .btn-delete img{
     margin-top: 10px;
@@ -65,7 +65,7 @@ max-height: 85vh;
     display: block;
     color: aqua;
     cursor: pointer;
-    margin-left: 15px;
+    margin-left: 9px;
 }
 
 

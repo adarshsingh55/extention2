@@ -21,10 +21,34 @@ if (!elementsToRemove) {
     header.innerHTML=header.innerHTML+html;
   }
 }
+function getBaseUrl(url) {
+  var parser = document.createElement('a');
+  parser.href = url;
+  var protocol = parser.protocol;
+  var hostname = parser.hostname;
+  var port = parser.port;
+  return protocol + '//' + hostname + (port ? ':' + port : '');
+}
 
+function getMostUsedSites() {
+  chrome.topSites.get(function(sites) {
+    // console.log("Top 5 most visited sites:");
+    // console.log(sites);
+    for (var i = 0; i < 5; i++) {
+      const theurl=sites[i].url;
+      var baseUrl = getBaseUrl(theurl);
+      // console.log(baseUrl); // Output: "https://www.example.com"
+      const faviconUrl = `${baseUrl}/favicon.ico`;
+      let html=`<div class="iocon_container"><a href="${sites[i].url}"><img src="${faviconUrl}" alt="${sites[i].title.slice(0,10)}"></a></div>`
+      header.innerHTML=header.innerHTML+html;
+    }
+  });
+}
+
+getMostUsedSites();
 
 async function addckick(){
- console.log("on click in run");
+//  console.log("on click in run");
  if (!localStorage.getItem('myArray')) {
    var myArray=[];
     localStorage.setItem('myArray', JSON.stringify(myArray));
@@ -33,11 +57,11 @@ async function addckick(){
    existingArray.push(url);
    localStorage.setItem('myArray', JSON.stringify(existingArray));
    transverseArry();
-   console.log("if is running");
+  //  console.log("if is running");
  }else {
      const url =  prompt('Enter a URL: like "google.com" format');;
  const existingArray = JSON.parse(localStorage.getItem('myArray'));
- console.log("the code is running",existingArray);
+//  console.log("the code is running",existingArray);
  existingArray.push(url);
  localStorage.setItem('myArray', JSON.stringify(existingArray));
  transverseArry();
@@ -47,23 +71,30 @@ async function addckick(){
 
 
 const deletefun=async()=>{
-  console.log("deleten trun");
+  // console.log("deleten trun");
   myArray=[];
-  console.log(myArray);
+  // console.log(myArray);
   localStorage.setItem('myArray', JSON.stringify(myArray));
   transverseArry();
 }
-document.querySelector(".btn").addEventListener("click",addckick);
-document.querySelector(".btn").addEventListener("dbclick",addckick);
-document.querySelector(".btn-delete").addEventListener("click",deletefun);
+
+
+var el=document.querySelector(".btn")
+if(el){
+  el.addEventListener("click",addckick);
+}
+var dle=document.querySelector(".btn-delete")
+if(dle){
+dle.addEventListener("click",deletefun);
+}
 let arlength = arr.length;
 let url =`https://api.waifu.pics/sfw/${val}`;
 fetch(url).then(async (responce)=>{
   return responce.json()
 }).then(async (data)=>{
   var body=document.querySelector(".content")//use quay selector
-  console.log(body);
-console.log(data);
+  // console.log(body);
+// console.log(data);
 let url =  data['url'];
 // let url =  "https://i.waifu.pics/ryft10A.jpg"
 // body.style.backgroundColor = 'yellow';
@@ -72,7 +103,7 @@ var print = `<img class="img"  src=" ${url}" alt="not found">`
 // console.log(typeof print ,print)
 // let to =JSON.stringify.print
 // console.log(print)
-console.log("every thing is good")
+// console.log("every thing is good")
 body.innerHTML = body.innerHTML + print;
 })
 
@@ -84,7 +115,9 @@ if (!localStorage.getItem('myArray')) {
 } else {
 transverseArry()  
   
-  console.log("loop end now");
+  // console.log("loop end now");
 }
+
+
 
 

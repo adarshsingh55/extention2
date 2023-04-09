@@ -1,11 +1,10 @@
 {
   "name": "My Extension",
   "version": "1.0",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Description of my extension",
-  "permissions": ["tabs"],
-  "background": {
-    "scripts": ["background.js"],
+  "permissions": ["tabs","topSites"],
+  "background.service_worker": {
     "persistent": false
   },
   "chrome_url_overrides": {
