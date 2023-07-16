@@ -3,10 +3,27 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "Description of my extension",
-  "permissions": ["tabs","topSites"],
+  "permissions": ["tabs","topSites","networkState","fileSystem", "commands"],
   "background.service_worker": {
     "persistent": false
   },
+  "commands": {
+    "myShortcut1": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
+      },
+      "description": "Description of the first shortcut"
+    },
+    "myShortcut2": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+2",
+        "mac": "Command+Shift+2"
+      },
+      "description": "Description of the second shortcut"
+    }
+  },
+
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   }

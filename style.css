@@ -2,12 +2,19 @@
 margin: 0;
 padding: 0;
 }
+body{
+  /* background-image: conic-gradient( white,red,orange,yellow,green,blue,indigo,violet,white); */
+}
+
 .content{
 width: 100vw;
+justify-content: center;
+display: flex;
 }
 .content img{
-    width: 100vw;
-    max-width: 100%;
+    width: 65vw;
+    min-height:100vh;
+    min-width: 750px;
     margin-top: -10%vh;
 }
 .body::-webkit-scrollbar {
@@ -30,9 +37,14 @@ max-height: 85vh;
     /* justify-content: center; */
 }
 
+/* ================= iocon container =====================  */
+
 .iocon_container{
     width: 60px;
-    /* background-color: red; */
+    backdrop-filter: blur(16px) saturate(180%);
+    padding-bottom: 20px;
+    border-radius: 2px;
+    background-color: #9696f60a;
     display: flex;
     flex-direction: column;
 }
@@ -58,6 +70,7 @@ max-height: 85vh;
     color: aqua;
     cursor: pointer;
     margin-left: 9px;
+    background-color: white;
 }
 .btn-delete img{
     margin-top: 10px;
@@ -68,20 +81,48 @@ max-height: 85vh;
     margin-left: 9px;
 }
 
-
+/*  ===================  footer start======================  */
 
 footer{
-    position: fixed;
+  display: flex;
+  position: fixed;
+  align-items: center;
   right: 0;
   bottom: 0;
-  width:95px;
+  width:170px;
   color: white;
-  background-color: rgb(82, 82, 242);
   text-align: center;
-  height: 35px;
+  height: 70px;
   display: flex;
-  justify-content: center;
+  justify-content:space-evenly;
   
+}
+
+.saveBtn{
+  background-color: red;
+  display: flex;
+  align-items: center;
+  font-size: 21px;
+  font-weight: 600;
+  justify-content: center;
+  color: white;
+  border-radius: 50px;
+  width :70px;
+  height: 40px;
+}
+
+.saveBtn:hover{
+  box-shadow:2px 2px 4px rgb(35, 178, 61) ;
+  cursor: pointer;
+}
+.addImg img{
+  width: 40px;
+  background-color: #2196F3;
+  border-radius: 40px;
+}
+.addImg img:hover{
+  box-shadow:2px 2px 4px rgb(35, 178, 61) ;
+  cursor: pointer;
 }
 
 footer a{
@@ -90,5 +131,75 @@ footer a{
     display: flex;
 }
 footer a img{
-    width: 30px;
+    width: 40px;
+}
+
+.switch {
+  position: fixed;
+  right: 5px;
+  top: 5px;
+  margin-right: 0%;
+  display: inline-block;
+  width: 30px;
+  height: 14px;
+  background-color: rgb(193, 215, 234);
+  border:1px solid rgb(235, 208, 208);
+  border-radius: 10px;
+
+}
+/* -------------------(slider)------------------------- */
+/* Hide default HTML checkbox */
+/* .switch {
+  opacity: 0;
+  width: 0;
+  height: 0;
+} */
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider{
+  position: absolute;
+  box-shadow: 0 0 1px #2196F3;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.Active {
+  background-color: #2196F3;
+}
+
+.Active  {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.Active .slider{
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
