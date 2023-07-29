@@ -233,6 +233,7 @@ allRun();
 //======== funtion to change toggel status when click ===========
 const switchClick = () => {
   let status = localStorage.getItem("myCheckbox");
+  alert("Show only saved Image")
 // console.log(status);
   if (status == "on") {
     localStorage.setItem("myCheckbox", "of");
@@ -250,7 +251,7 @@ Myswitch.addEventListener("click", switchClick);
 //================== click on add Img fountion ===========
 const addImgHandel = async () => {
   // console.log("add img click");
-  let givenurl = await prompt('Enter a URL: like "google.com" format');
+  let givenurl = await prompt('Enter a URL of image');
   if (value !== null) {
     // Do something with the value.
   // console.log(`The user entered: ${value}`);
@@ -281,15 +282,15 @@ const saveBtnHandel = async (url) => {
 };
 
 //=======dbclick on addImg fountion =============
-const bdAddImgHandel = async ()=>{
- // if the ok button is clicked, result will be true (boolean)
-var result = confirm( "Do you want delete All All link to do this?" );
+// const bdAddImgHandel = async ()=>{
+//  // if the ok button is clicked, result will be true (boolean)
+// var result = confirm( "Do you want delete All All link to do this?" );
 
-if ( result ) {
-// console.log("db click");
-    let ImgArr = [];
-  await localStorage.setItem("ImgArr", JSON.stringify(ImgArr));
-} 
-}
+// if ( result ) {
+// // console.log("db click");
+//     let ImgArr = [];
+//   await localStorage.setItem("ImgArr", JSON.stringify(ImgArr));
+// } 
+// }
 // addImg.addEventListener("dblclick", bdImgHandel);
-addDoubleClickEventListener(addImg,bdAddImgHandel);
+// addDoubleClickEventListener(addImg,bdAddImgHandel);
