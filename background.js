@@ -32,6 +32,8 @@ var arr = [
   "cringe",
 ];
 
+
+
 // index
 // ========== funtion for keybord shortcut ================
 // funtion for add user url
@@ -190,7 +192,7 @@ const allRun = async () => {
     let ImgArr = await JSON.parse(localStorage.getItem("ImgArr"));
   // console.log(ImgArr);
     const randomIndex = Math.floor(Math.random() * ImgArr.length);
-    const url = ImgArr[randomIndex];
+    var url = ImgArr[randomIndex];
     const print = `<img class="img"  src=" ${url}" alt="not found">`;
     body.innerHTML = body.innerHTML + print;
   // console.log("every thing is good");
@@ -226,9 +228,10 @@ const allRun = async () => {
     // console.log(error);
     }
   }
+  return url
 };
 
-allRun();
+const url=allRun();
 
 //======== funtion to change toggel status when click ===========
 const switchClick = () => {
@@ -280,6 +283,100 @@ const saveBtnHandel = async (url) => {
 }, 1500);
 // console.log(ImgArr);
 };
+function updateClock() {
+  const now = new Date();
+  const hours = now.getHours();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const twelveHourFormat = (hours % 12 || 12).toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  const timeString = `${twelveHourFormat}:${minutes}:${seconds} ${ampm}`;
+  
+  document.getElementById('clock').textContent = timeString;
+}
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+// Initial call to set the clock
+updateClock();
+
+
+// typing animation 
+
+
+
+
+
+
+
+
+
+// async function saveBtnHandel() {
+//   const imageData = url;
+//   console.log(imageData);
+//   if (imageData) {
+//     const imageURL = await imageData;
+//     console.log(imageURL);
+//     const filename =Math.random();
+//     const folderPath = "images/";
+//     const relativePath = folderPath + filename;
+
+//     fetch(imageURL)
+//       .then((response) => response.blob())
+//       .then((blob) => {
+//         const url = URL.createObjectURL(blob);
+//         const a = document.createElement("a");
+//         a.href = url;
+//         a.download = filename;
+//         document.body.appendChild(a);
+//         a.click();
+//         window.URL.revokeObjectURL(url);
+//       });
+//   }
+// }
+
+// function saveUrlInRelativeFolder(url, folderPath, callback) {
+//   fetch(url)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return response.blob();
+//     })
+//     .then((blob) => {
+//       const filename = url.substring(url.lastIndexOf('/') + 1);
+//       const relativePath = `${folderPath}/${filename}`;
+//       const url = URL.createObjectURL(blob);
+//       const a = document.createElement('a');
+//       a.href = url;
+//       a.download = filename;
+//       document.body.appendChild(a);
+//       a.click();
+//       window.URL.revokeObjectURL(url);
+//       if (typeof callback === 'function') {
+//         callback(relativePath);
+//       }
+//     })
+//     .catch((error) => {
+//       console.error('Error saving URL:', error);
+//       if (typeof callback === 'function') {
+//         callback(null);
+//       }
+//     });
+// }
+
+// // Example usage:
+// const urlToSave = url;
+// console.log();
+// const folderToSaveIn = 'images'; // Relative folder path
+// saveUrlInRelativeFolder(urlToSave, folderToSaveIn, (savedPath) => {
+//   if (savedPath) {
+//     console.log(`URL saved to: ${savedPath}`);
+//   } else {
+//     console.log('Failed to save the URL.');
+//   }
+// });
 
 //=======dbclick on addImg fountion =============
 // const bdAddImgHandel = async ()=>{
@@ -294,3 +391,18 @@ const saveBtnHandel = async (url) => {
 // }
 // addImg.addEventListener("dblclick", bdImgHandel);
 // addDoubleClickEventListener(addImg,bdAddImgHandel);
+
+var i = 0;
+var txt = 'how are you';
+var speed = 60;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+
+}
+// typeWriter()
+// setInterval(typeWriter(), 10000);
