@@ -16,6 +16,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
   });
 
+  //hello what the hello is happininng 
+  
+
   function getFolderPathFromUser(callback) {
     console.log("hello");
     chrome.runtime.getPackageDirectoryEntry(function(root) {
