@@ -5,7 +5,7 @@ padding: 0;
 
 }
 .body{
-  background: #66478d;
+  background: #74387e;
   height: 100%;
   width: 70%;
   position: fixed;
@@ -16,7 +16,7 @@ padding: 0;
 .clock{
   z-index: 25;
   position: fixed;
-  right: 97px;
+  right: 127px;
   font-size: 34px;
   color: greenyellow;
   top: 60px
@@ -152,7 +152,7 @@ footer{
   display: flex;
   position: fixed;
   align-items: center;
-  right: 406px;
+  right: 506px;
   bottom: 0;
   width:170px;
   color: white;
@@ -186,7 +186,7 @@ footer{
   border-radius: 40px;
 }
 .addImg img:hover{
-  box-shadow:2px 2px 4px rgb(35, 178, 61) ;
+  box-shadow:2px 2px 4px rgb(178, 114, 35) ;
   cursor: pointer;
 }
 
@@ -202,7 +202,7 @@ footer a img{
 .switch {
   z-index: 3;
   position: fixed;
-  right: 406px;
+  right: 506px;
   top: 5px;
   margin-right: 0%;
   display: inline-block;

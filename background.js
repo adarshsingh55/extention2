@@ -56,25 +56,51 @@ const Myswitch = document.querySelector(".switch");
 const Myslider = document.querySelector(".slider");
 // const addImg = document.querySelector(".addImg");
 
+
+
 // ========== funtion for keybord shortcut ================
 function openURLsInNewTabs(urls) {
   urls.forEach(function (url) {
     window.open(url, "_blank");
   });
 }
+
+let isShortcutActive = false;
+
 chrome.commands.onCommand.addListener(function (command) {
+  if (isShortcutActive) return;
+    // Prevent multiple executions
+  isShortcutActive = true;
+
   if (command === "myShortcut1") {
     // Handle the first shortcut
     var urls = ["https://chat.openai.com", "https://bard.google.com/"];
     openURLsInNewTabs(urls);
-  // console.log("First shortcut triggered");
+    console.log("First shortcut triggered");
   } else if (command === "myShortcut2") {
-    var urls = ["https://www.youtube.com"];
-    openURLsInNewTabs(urls);
+  // Handle the second shortcut
+  var urls = ["https://www.linkedin.com/", "https://www.reddit.com/","https://www.instagram.com/"];
+  openURLsInNewTabs(urls);
+  console.log("Second shortcut triggered");
+    console.log("Second shortcut triggered");
+  }else if (command === "myShortcut3") {
     // Handle the second shortcut
-  // console.log("Second shortcut triggered");
+    var urls = ["https://drive.google.com/drive/folders/1JyHmXjSIP7JvCWpdKiP3mJ8qvb6r_aYy","https://docs.google.com/spreadsheets/d/1wc2zY2Jf8R6-Ye2padW9M7BOsUqVt0Pk-dgyOEPTD44/edit?gid=0#gid=0"];
+    openURLsInNewTabs(urls);
+    console.log("Second shortcut triggered");
   }
+
+  // Allow the shortcut to be triggered again after a short delay
+  setTimeout(function () {
+    isShortcutActive = false;
+  }, 2000);  // Adjust the delay as needed
 });
+
+
+
+
+
+
 
 //  funtion for add user url
 // first deletets all the exsisting user url from dom then add all the edited elements .
@@ -97,6 +123,7 @@ const transverseArry = () => {
   }
 };
 
+
 //==========  funtion to get base url use to get faveicon =======
 
 function getBaseUrl(url) {
@@ -107,6 +134,7 @@ function getBaseUrl(url) {
   var port = parser.port;
   return protocol + "//" + hostname + (port ? ":" + port : "");
 }
+
 
 // ========= fountion to get most used site and add it html =========
 function getMostUsedSites() {
@@ -152,6 +180,7 @@ async function addckick() {
   }
 }
 
+
 //========= fountion to delete all url to myArray and tranversing once again in dom==============
 
 const deletefun = async () => {
@@ -171,6 +200,7 @@ if (deleteUrl) {
   deleteUrl.addEventListener("click", deletefun);
 }
 
+
 //=========== by default tranverse ====================
 if (!localStorage.getItem("myArray")) {
 } else {
@@ -184,6 +214,7 @@ if (!localStorage.getItem("myCheckbox")) {
   var ImgArr = ["https://c4.wallpaperflare.com/wallpaper/508/555/786/lofi-cafe-asian-digital-art-artwork-hd-wallpaper-preview.jpg","https://c4.wallpaperflare.com/wallpaper/600/919/630/digital-art-illustration-lofi-hd-wallpaper-preview.jpg","https://c4.wallpaperflare.com/wallpaper/908/34/383/lofi-digital-anthro-hd-wallpaper-preview.jpg"];
   localStorage.setItem("ImgArr", JSON.stringify(ImgArr));
 }
+
 
 // ===== check switch when on and of then run disier funtion ======
 const allRun = async () => {
@@ -200,7 +231,9 @@ const allRun = async () => {
     getMostUsedSites();
   } else {
     Myswitch.classList.remove("Active");
-    //============== theis funtion use to add img to baground if dont get add defoult img =================
+        
+
+    //============== theis funtion use to add img to baground if dont get add defoult img ================= 
     try {
       let urls = `https://api.waifu.pics/sfw/${val}`;
       fetch(urls)
@@ -233,6 +266,7 @@ const allRun = async () => {
 
 const url=allRun();
 
+
 //======== funtion to change toggel status when click ===========
 const switchClick = () => {
   let status = localStorage.getItem("myCheckbox");
@@ -251,20 +285,21 @@ const switchClick = () => {
 
 Myswitch.addEventListener("click", switchClick);
 
+
 //================== click on add Img fountion ===========
 const addImgHandel = async () => {
   // console.log("add img click");
   let givenurl = await prompt('Enter a URL of image');
-  if (value !== null) {
+  if (givenurl !== null) {
     // Do something with the value.
   // console.log(`The user entered: ${value}`);
+  let ImgArr = await JSON.parse(localStorage.getItem("ImgArr"));
+// console.log(givenurl);
+  ImgArr.push(givenurl);
+  localStorage.setItem("ImgArr", JSON.stringify(ImgArr));
   } else {
     // The user clicked the Cancel button.
   // console.log(`The user canceled the prompt.`);
-    let ImgArr = await JSON.parse(localStorage.getItem("ImgArr"));
-  // console.log(givenurl);
-    ImgArr.push(givenurl);
-    localStorage.setItem("ImgArr", JSON.stringify(ImgArr));
   // console.log(ImgArr);
   }
 };
@@ -377,6 +412,7 @@ updateClock();
 //     console.log('Failed to save the URL.');
 //   }
 // });
+
 
 //=======dbclick on addImg fountion =============
 // const bdAddImgHandel = async ()=>{

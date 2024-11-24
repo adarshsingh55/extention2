@@ -8,21 +8,25 @@
     "persistent": false
   },
   "commands": {
-    "myShortcut1": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+1",
-        "mac": "Command+Shift+1"
-      },
-      "description": "Description of the first shortcut"
+        "myShortcut1": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+1"
+            },
+            "description": "Open Google and YouTube"
+        },
+        "myShortcut2": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+2"
+            },
+            "description": "Open Facebook and Twitter"
+        },
+        "myShortcut3": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+3"
+            },
+            "description": "Open Instagram and Reddit"
+        }
     },
-    "myShortcut2": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+2",
-        "mac": "Command+Shift+2"
-      },
-      "description": "Description of the second shortcut"
-    }
-  },
 
   "chrome_url_overrides": {
     "newtab": "newtab.html"
