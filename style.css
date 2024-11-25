@@ -6,6 +6,7 @@ padding: 0;
 }
 .body{
   background: #74387e;
+  position: relative;
   height: 100%;
   width: 70%;
   position: fixed;
@@ -105,7 +106,7 @@ max-height: 85vh;
 /* ================= iocon container =====================  */
 
 .iocon_container{
-    width: 60px;
+    width: 6rem;
     backdrop-filter: blur(16px) saturate(180%);
     padding-bottom: 20px;
     border-radius: 2px;
@@ -122,7 +123,7 @@ max-height: 85vh;
     flex-direction: column;
 }
 .iocon_container a img{
-    width: 40px;
+    width: 4rem;
     display: block;
     color: aqua;
     margin-top: 10px;
@@ -150,10 +151,10 @@ max-height: 85vh;
 
 footer{
   display: flex;
-  position: fixed;
+  position: absolute;
   align-items: center;
-  right: 506px;
-  bottom: 0;
+  right: 10px;
+  bottom: 5px;
   width:170px;
   color: white;
   text-align: center;
@@ -202,7 +203,7 @@ footer a img{
 .switch {
   z-index: 3;
   position: fixed;
-  right: 506px;
+  right: 10px;
   top: 5px;
   margin-right: 0%;
   display: inline-block;
@@ -211,7 +212,7 @@ footer a img{
   background-color: rgb(193, 215, 234);
   border:1px solid rgb(235, 208, 208);
   border-radius: 10px;
-
+  position: absolute;
 }
 /* -------------------(slider)------------------------- */
 /* Hide default HTML checkbox */
