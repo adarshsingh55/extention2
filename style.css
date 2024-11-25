@@ -1,0 +1,271 @@
+*{
+margin: 0;
+padding: 0;
+/* background: #66478d; */
+
+}
+.body{
+  background: #74387e;
+  height: 100%;
+  width: 70%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+.clock{
+  z-index: 25;
+  position: fixed;
+  right: 127px;
+  font-size: 34px;
+  color: greenyellow;
+  top: 60px
+  
+}
+.demo{
+  z-index: 3;
+  position: relative;
+}
+/* .anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+} */
+.iframe{width: 28vw;
+height: 100vh;
+height: 100%;
+width: 30%;
+position: fixed;
+z-index: 1;
+top: 0;
+overflow-x: hidden;
+right: 0;
+overflow-y: hidden; /* Hide vertical scrollbar */
+overflow-x: hidden;}
+.iframe::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-width: 950px) {
+  .iframe{
+    display: none;
+  }
+  .clock{
+ display: none;
+  }
+  
+    .body{
+     width: 90vw;
+    }
+  
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.iframe{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.content{
+
+justify-content: center;
+display: flex;
+}
+.content img{
+    width: 90%;
+    min-height:100vh;
+    min-width: 750px;
+    margin-top: -10%vh;
+}
+.body::-webkit-scrollbar {
+    display: none;
+  }
+header{
+    margin-left: 10px;
+    position: fixed;
+    left: 0;
+top: 0;
+max-height: 85vh;
+    /* width: 50px; */
+    height: 100vh;
+    /* background-color: yellow; */
+    text-align: center;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+/* ================= iocon container =====================  */
+
+.iocon_container{
+    width: 60px;
+    backdrop-filter: blur(16px) saturate(180%);
+    padding-bottom: 20px;
+    border-radius: 2px;
+    background-color: #9696f60a;
+    display: flex;
+    flex-direction: column;
+}
+.headcontainer{
+    /* width: 40px; */
+    /* background-color: red; */
+    max-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.iocon_container a img{
+    width: 40px;
+    display: block;
+    color: aqua;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.btn img{
+    margin-top: 15px;
+    width: 40px;
+    display: block;
+    color: aqua;
+    cursor: pointer;
+    margin-left: 9px;
+    background-color: white;
+}
+.btn-delete img{
+    margin-top: 10px;
+    width: 40px;
+    display: block;
+    color: aqua;
+    cursor: pointer;
+    margin-left: 9px;
+}
+
+/*  ===================  footer start======================  */
+
+footer{
+  display: flex;
+  position: fixed;
+  align-items: center;
+  right: 506px;
+  bottom: 0;
+  width:170px;
+  color: white;
+  text-align: center;
+  height: 70px;
+  display: flex;
+  justify-content:space-evenly;
+  
+}
+
+.saveBtn{
+  background-color: red;
+  display: flex;
+  align-items: center;
+  font-size: 21px;
+  font-weight: 600;
+  justify-content: center;
+  color: white;
+  border-radius: 50px;
+  width :70px;
+  height: 40px;
+}
+
+.saveBtn:hover{
+  box-shadow:2px 2px 4px rgb(35, 178, 61) ;
+  cursor: pointer;
+}
+.addImg img{
+  width: 40px;
+  background-color: #2196F3;
+  border-radius: 40px;
+}
+.addImg img:hover{
+  box-shadow:2px 2px 4px rgb(178, 114, 35) ;
+  cursor: pointer;
+}
+
+footer a{
+    font-size: 1.5rem;
+    width: 30px;
+    display: flex;
+}
+footer a img{
+    width: 40px;
+}
+
+.switch {
+  z-index: 3;
+  position: fixed;
+  right: 506px;
+  top: 5px;
+  margin-right: 0%;
+  display: inline-block;
+  width: 30px;
+  height: 14px;
+  background-color: rgb(193, 215, 234);
+  border:1px solid rgb(235, 208, 208);
+  border-radius: 10px;
+
+}
+/* -------------------(slider)------------------------- */
+/* Hide default HTML checkbox */
+/* .switch {
+  opacity: 0;
+  width: 0;
+  height: 0;
+} */
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider{
+  position: absolute;
+  box-shadow: 0 0 1px #2196F3;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.Active {
+  background-color: #2196F3;
+}
+
+.Active  {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.Active .slider{
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

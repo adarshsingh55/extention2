@@ -1,0 +1,38 @@
+{
+  "name": "My Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Description of my extension",
+  "permissions": ["tabs","topSites","networkState","fileSystem", "commands"],
+  "background.service_worker": {
+    "persistent": false
+  },
+  "commands": {
+        "myShortcut1": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+1"
+            },
+            "description": "Open Google and YouTube"
+        },
+        "myShortcut2": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+2"
+            },
+            "description": "Open Facebook and Twitter"
+        },
+        "myShortcut3": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+3"
+            },
+            "description": "Open Instagram and Reddit"
+        }
+    },
+
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "16": "./img/favicon-16x16.png",
+    "32": "./img/favicon-32x32.png"
+  }
+}
