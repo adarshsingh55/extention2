@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body >
-    <div id="clock" class="clock anim-typewriter"></div>
+   
 
 <div class="body">
     <header>
@@ -31,6 +31,7 @@
         <div class="btn-delete">
             <img src="./img/delete.png" alt="soory">
         </div>
+        
         <!-- <div class="iocon_container getImg">
             <img src="./img/delete.png" alt="soory">
         </div> -->
@@ -54,9 +55,17 @@
     </footer>
  
 </div>
-<div>
-
-    <img class="iframe" src="./side.jpg" alt="">
+<div class="sidepannel">
+    <div id="clock" class="clock anim-typewriter"></div>
+    <div class="container">
+       
+        <form id="noteForm">
+          <textarea id="noteInput" placeholder="Write your note here..." required></textarea>
+          <button type="submit">Add Note</button>
+        </form>
+        <div id="notesContainer"></div>
+      </div>
+    <!-- <img class="iframe" src="./side.jpg" alt=""> -->
 </div>
 <span class="demo" id="demo"></span>
 <script src="./background.js"></script>

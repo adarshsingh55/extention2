@@ -14,15 +14,7 @@ padding: 0;
   top: 0;
   overflow-x: hidden;
 }
-.clock{
-  z-index: 25;
-  position: fixed;
-  right: 127px;
-  font-size: 34px;
-  color: greenyellow;
-  top: 60px
-  
-}
+
 .demo{
   z-index: 3;
   position: relative;
@@ -103,10 +95,103 @@ max-height: 85vh;
     /* justify-content: center; */
 }
 
+/* ========================= Side pannel ================= */
+
+.clock{
+  z-index: 25;
+  /* position: fixed; */
+  right: 89px;
+  font-size: 34px;
+  color: greenyellow;
+  top: 2px;
+  
+}
+
+.sidepannel{
+  position: fixed;
+  right: 0px;
+  background-color: #140160;
+  width: 30vw;
+  height: 100vh;
+  color: greenyellow;
+
+}
+
+
+.container {
+  border: 1px solid;
+    margin: 4px;
+    /* display: block; */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+h1, h2 {
+
+}
+
+form {
+display: flex;
+}
+
+textarea {
+  width: 95%;
+  background-color: aqua;
+  padding: 5px;
+  margin: 5px;
+}
+
+
+button {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#notesContainer {
+  margin-top: 20px;
+}
+
+.note {
+  /* background: #f4f4f4; */
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 4px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background: #cc0000;
+}
+
+
 /* ================= iocon container =====================  */
 
 .iocon_container{
-    width: 6rem;
+    width: 4rem;
     backdrop-filter: blur(16px) saturate(180%);
     padding-bottom: 20px;
     border-radius: 2px;
@@ -123,7 +208,7 @@ max-height: 85vh;
     flex-direction: column;
 }
 .iocon_container a img{
-    width: 4rem;
+    width: 3rem;
     display: block;
     color: aqua;
     margin-top: 10px;

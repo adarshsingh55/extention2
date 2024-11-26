@@ -440,5 +440,60 @@ function typeWriter() {
   }
 
 }
+
 // typeWriter()
 // setInterval(typeWriter(), 10000);
+
+
+// ============== Side pannel ==========================
+// DOM Elements
+const noteForm = document.getElementById('noteForm');
+const noteInput = document.getElementById('noteInput');
+const notesContainer = document.getElementById('notesContainer');
+
+// Load notes from local storage
+function loadNotes() {
+  const notes = JSON.parse(localStorage.getItem('notes')) || [];
+  notesContainer.innerHTML = '';
+  notes.forEach((note, index) => {
+    displayNote(note, index);
+  });
+}
+
+// Display a single note
+function displayNote(note, index) {
+  const noteDiv = document.createElement('div');
+  noteDiv.className = 'note';
+  noteDiv.innerHTML = `
+    <span>${note}</span>
+    <button class="delete-btn" data-index="${index}">Delete</button>
+  `;
+  notesContainer.appendChild(noteDiv);
+}
+
+// Add a note
+noteForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const noteText = noteInput.value.trim();
+  if (noteText) {
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+    notes.push(noteText);
+    localStorage.setItem('notes', JSON.stringify(notes));
+    noteInput.value = '';
+    loadNotes();
+  }
+});
+
+// Delete a note
+notesContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('delete-btn')) {
+    const index = e.target.dataset.index;
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+    notes.splice(index, 1);
+    localStorage.setItem('notes', JSON.stringify(notes));
+    loadNotes();
+  }
+});
+
+// Initial load
+loadNotes();
