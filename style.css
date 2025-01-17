@@ -51,7 +51,9 @@ overflow-x: hidden;}
     display: none;
   }
   .clock{
- display: none;
+ display: flex;
+     align-items: center;
+     justify-content: center;
   }
   
     .body{
@@ -100,6 +102,10 @@ max-height: 85vh;
 .clock{
   z-index: 25;
   /* position: fixed; */
+  display: flex
+  ;
+      align-items: center;
+      justify-content: center;
   right: 89px;
   font-size: 34px;
   color: greenyellow;
@@ -140,6 +146,7 @@ textarea {
   background-color: aqua;
   padding: 5px;
   margin: 5px;
+  align-content: center;
 }
 
 
