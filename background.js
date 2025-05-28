@@ -243,7 +243,7 @@ const allRun = async () => {
         .then((data) => {
           // await console.log(data);
           //use quay selector
-          // console.log(body);
+          // console.log(body);    
           const url = data["url"];
           const print = `<img class="img"  src=" ${url}" alt="not found">`;
           body.innerHTML = body.innerHTML + print;
