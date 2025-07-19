@@ -3,7 +3,7 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "Description of my extension",
-  "permissions": ["tabs","topSites","networkState","fileSystem", "commands"],
+  "permissions": ["tabs","topSites","networkState","fileSystem", "commands","history"],
   "background.service_worker": {
     "persistent": false
   },
@@ -34,5 +34,8 @@
   "icons": {
     "16": "./img/favicon-16x16.png",
     "32": "./img/favicon-32x32.png"
-  }
+  },
+  "host_permissions": [
+  "<all_urls>"
+]
 }

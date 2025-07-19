@@ -343,8 +343,48 @@ updateClock();
 
 
 
+// ====================== crome history =====================
 
+ async function loadRecentHistory() {
+  const historyList = document.getElementById('historyList');
+  historyList.innerHTML = ''; // Clear previous entries
 
+  const oneWeekAgo = Date.now() - 1000 * 60 * 60 * 24 * 7;
+
+  const historyItems = await chrome.history.search({
+    text: '',
+    startTime: oneWeekAgo,
+    maxResults: 6
+  });
+
+  historyItems.forEach(item => {
+    const entry = document.createElement('div');
+    entry.className = 'history-entry';
+    entry.style.marginBottom = '8px';
+
+    const url = new URL(item.url);
+    const shortUrl = url.hostname; // Get the domain only
+
+    const link = document.createElement('a');
+    link.href = item.url;
+    link.textContent = item.title || shortUrl; // Use title, or short URL if title is empty
+    link.target = '_blank';
+    link.style.textDecoration = 'none';
+
+    const favicon = document.createElement('img');
+    favicon.src = `chrome://favicon/${item.url}`;
+    favicon.style.width = '16px';
+    favicon.style.height = '16px';
+    favicon.style.marginRight = '8px';
+    favicon.style.verticalAlign = 'middle';
+
+    // entry.appendChild(favicon);
+    entry.appendChild(link);
+    historyList.appendChild(entry);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', loadRecentHistory);
 
 
 // async function saveBtnHandel() {
