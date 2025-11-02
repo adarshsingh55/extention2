@@ -85,7 +85,7 @@ chrome.commands.onCommand.addListener(function (command) {
     console.log("Second shortcut triggered");
   }else if (command === "myShortcut3") {
     // Handle the second shortcut
-    var urls = ["https://drive.google.com/drive/folders/1JyHmXjSIP7JvCWpdKiP3mJ8qvb6r_aYy","https://docs.google.com/spreadsheets/d/1wc2zY2Jf8R6-Ye2padW9M7BOsUqVt0Pk-dgyOEPTD44/edit?gid=0#gid=0"];
+    var urls = ["https://drive.google.com/drive/folders/1JyHmXjSIP7JvCWpdKiP3mJ8qvb6r_aYy","https://docs.google.com/spreadsheets/d/1wc2zY2Jf8R6-Ye2padW9M7BOsUqVt0Pk-dgyOEPTD44/edit?gid=0#gid=0","https://to-do.live.com/tasks/AQMkADAwATM0MDAAMS01NzIzLTk4MTMtMDACLTAwCgAuAAADTilB4v4my0KPYGvoLKYRNQEAo-Z53oAgxkO8jkgzUrVODAAAAnMHAAAA"];
     openURLsInNewTabs(urls);
     console.log("Second shortcut triggered");
   }
